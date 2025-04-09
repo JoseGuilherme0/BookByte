@@ -1,56 +1,56 @@
-📚 BookByte
+# 📚 BookByte
 
 BookByte é uma rede social para leitores que desejam compartilhar suas opiniões sobre livros, recomendar (ou não) obras que já leram, e interagir com outros leitores apaixonados por literatura. A plataforma permite a publicação de resenhas, reações, comentários, sistema de seguidores e muito mais.
 
-⚙️ Tecnologias Utilizadas
+# ⚙️ Tecnologias Utilizadas
 
 Frontend
 
-Next.js
+- Next.js
 
-React
+- React
 
-Tailwind CSS
+- Tailwind CSS
 
-Axios (para requisições HTTP)
+- Axios (para requisições HTTP)
 
 Backend
 
-Node.js
+- Node.js
 
-Express
+- Express
 
-Banco de dados (MySQL)
+- Banco de dados (MySQL)
 
-JWT para autenticação
+- JWT para autenticação
 
-nodemon
+- Nodemon
 
-🚀 Funcionalidades Iniciais (MVP)
+# 🚀 Funcionalidades Iniciais (MVP)
 
-Cadastro e login de usuários
+- Cadastro e login de usuários
 
-Publicação de reviews de livros
+- Publicação de reviews de livros
 
-Listagem de reviews no feed
+- Listagem de reviews no feed
 
-Curtir, comentar e reagir a resenhas
+- Curtir, comentar e reagir a resenhas
 
-Perfil do usuário com suas publicações
+- Perfil do usuário com suas publicações
 
-Busca por livro ou autor
+- Busca por livro ou autor
 
-Edição e exclusão de reviews próprias
+- Edição e exclusão de reviews próprias
 
-🛠️ Como rodar o projeto localmente
+# 🛠️ Como rodar o projeto localmente
 
 🔹 Pré-requisitos
 
-Node.js instalado
+- Node.js instalado
 
-MySQL instalado
+- MySQL instalado
 
-Git
+# Git
 
 🔹 Clonando o repositório
 
@@ -59,52 +59,64 @@ cd BookByte
 
 🔹 Instalando dependências
 
-# Frontend
+- Frontend
 cd frontend
 npm install
 
-# Backend
-cd ../backend
+- Backend
+cd backend
 npm install
 
 🔹 Rodando o projeto
 
-# Rodar backend
+- Rodar backend
 cd api
 npm start
 
-# Em outra aba do terminal, rodar o frontend
+- Em outra aba do terminal, rodar o frontend
 cd client/rede-social
 npm run dev
 
-🧚‍♂️ Estrutura do Projeto
+# 🧚‍♂️ Estrutura do Projeto
 
 bookbyte/
-│
-├── api/
-│   ├── controllers/
-│   ├── routes/
-│   ├── index.js
-│   └── connect.js
-│   └── .env
-│
-├── client/
-│   ├── rede-social
-│   │   ├── public/
-│   │   └── scr/
-│   │   │   ├── app/
-│   │   │   ├── components/
 
-🤩 Possibilidades Futuras
+  ├── api/
 
-Sistema de seguidores e notificações
+  │   ├── controllers/
 
-Reações personalizadas (como "amei", "de olho", etc.)
+  │   ├── routes/
 
-Listas personalizadas como “Quero ler”, “Lidos” e “Favoritos”
+  │   ├── index.js
 
-Rankings de usuários mais ativos
+  │   └── connect.js
 
-Grupos por gênero literário
+  │   └── .env
 
-📄 Todos os direitos reservados para os desenvolvedores do projeto.
+  │
+
+  ├── client/
+
+  │   ├── rede-social
+
+  │   │   ├── public/
+
+  │   │   └── scr/
+
+  │   │   │   ├── app/
+
+  │   │   │   ├── components/
+
+# 🤩 Possibilidades Futuras
+
+- Sistema de seguidores e notificações
+
+- Reações personalizadas (como "amei", "de olho", etc.)
+
+- Listas personalizadas como “Quero ler”, “Lidos” e “Favoritos”
+
+- Rankings de usuários mais ativos
+
+- Grupos por gênero literário
+
+# 📄 Todos os direitos reservados para os desenvolvedores do projeto.

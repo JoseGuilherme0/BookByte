@@ -2,9 +2,12 @@
 
 BookByte é uma rede social para leitores que desejam compartilhar suas opiniões sobre livros, recomendar (ou não) obras que já leram, e interagir com outros leitores apaixonados por literatura.
 
+
 A plataforma permite a publicação de resenhas, reações, comentários, sistema de seguidores e muito mais.
 
+
 # ⚙️ Tecnologias Utilizadas  
+
 
 🔹 Frontend
 
@@ -15,6 +18,7 @@ A plataforma permite a publicação de resenhas, reações, comentários, sistem
 - Tailwind CSS
 
 - Axios (para requisições HTTP)  
+
 
 🔹Backend
 
@@ -52,7 +56,8 @@ A plataforma permite a publicação de resenhas, reações, comentários, sistem
 
 - MySQL instalado
 
-- Git
+# Git
+
 
 🔹 Clonando o repositório
 

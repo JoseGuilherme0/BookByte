@@ -100,6 +100,7 @@ bookbyte/
 
 # 🤩 Possibilidades Futuras
 
+- Sistema de seguidores e notificações
 
 - Reações personalizadas (como "amei", "de olho", etc.)
 

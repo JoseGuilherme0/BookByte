@@ -1,84 +1,87 @@
-📚 BookByte
+# 📚 BookByte
 
-BookByte é uma rede social para leitores que desejam compartilhar suas opiniões sobre livros, recomendar (ou não) obras que já leram, e interagir com outros leitores apaixonados por literatura. A plataforma permite a publicação de resenhas, reações, comentários, sistema de seguidores e muito mais.
+BookByte é uma rede social para leitores que desejam compartilhar suas opiniões sobre livros, recomendar (ou não) obras que já leram, e interagir com outros leitores apaixonados por literatura.
 
-⚙️ Tecnologias Utilizadas
+A plataforma permite a publicação de resenhas, reações, comentários, sistema de seguidores e muito mais.
 
-Frontend
+# ⚙️ Tecnologias Utilizadas  
 
-Next.js
+🔹 Frontend
 
-React
+- Next.js
 
-Tailwind CSS
+- React
 
-Axios (para requisições HTTP)
+- Tailwind CSS
 
-Backend
+- Axios (para requisições HTTP)  
 
-Node.js
+🔹Backend
 
-Express
+- Node.js
 
-Banco de dados (MySQL)
+- Express
 
-JWT para autenticação
+- Banco de dados (MySQL)
 
-nodemon
+- JWT para autenticação
 
-🚀 Funcionalidades Iniciais (MVP)
+- nodemon
 
-Cadastro e login de usuários
+# 🚀 Funcionalidades Iniciais (MVP)
 
-Publicação de reviews de livros
+- Cadastro e login de usuários
 
-Listagem de reviews no feed
+- Publicação de reviews de livros
 
-Curtir, comentar e reagir a resenhas
+- Listagem de reviews no feed
 
-Perfil do usuário com suas publicações
+- Curtir, comentar e reagir a resenhas
 
-Busca por livro ou autor
+- Perfil do usuário com suas publicações
 
-Edição e exclusão de reviews próprias
+- Busca por livro ou autor
 
-🛠️ Como rodar o projeto localmente
+- Edição e exclusão de reviews próprias
+
+# 🛠️ Como rodar o projeto localmente
 
 🔹 Pré-requisitos
 
-Node.js instalado
+- Node.js instalado
 
-MySQL instalado
+- MySQL instalado
 
-Git
+- Git
 
 🔹 Clonando o repositório
 
-git clone https://github.com/JoseGuilherme0/BookByte.git
-cd BookByte
+- git clone https://github.com/JoseGuilherme0/BookByte.git  
+- cd BookByte
 
-🔹 Instalando dependências
+# Instalando dependências
 
-# Frontend
-cd frontend
-npm install
+🔹 Frontend
+- cd client  
+- npm install
 
-# Backend
-cd ../backend
-npm install
+🔹 Backend
+- cd api  
+- npm install
 
-🔹 Rodando o projeto
+# Rodando o projeto
 
-# Rodar backend
-cd api
-npm start
+🔹Rodar backend
+- cd api
+- npm start
 
-# Em outra aba do terminal, rodar o frontend
-cd client/rede-social
-npm run dev
+🔹 Em outra aba do terminal, rodar o frontend
+- cd client/rede-social
+- npm run dev  
 
-🧚‍♂️ Estrutura do Projeto
+# 🧚‍♂️ Estrutura do Projeto
 
+```
 bookbyte/
 │
 ├── api/
@@ -86,7 +89,6 @@ bookbyte/
 │   ├── routes/
 │   ├── index.js
 │   └── connect.js
-│   └── .env
 │
 ├── client/
 │   ├── rede-social
@@ -94,17 +96,17 @@ bookbyte/
 │   │   └── scr/
 │   │   │   ├── app/
 │   │   │   ├── components/
+```
 
-🤩 Possibilidades Futuras
+# 🤩 Possibilidades Futuras
 
-Sistema de seguidores e notificações
 
-Reações personalizadas (como "amei", "de olho", etc.)
+- Reações personalizadas (como "amei", "de olho", etc.)
 
-Listas personalizadas como “Quero ler”, “Lidos” e “Favoritos”
+- Listas personalizadas como “Quero ler”, “Lidos” e “Favoritos”
 
-Rankings de usuários mais ativos
+- Rankings de usuários mais ativos
 
-Grupos por gênero literário
+- Grupos por gênero literário    
 
-📄 Todos os direitos reservados para os desenvolvedores do projeto.
+# 📄 Todos os direitos reservados para os desenvolvedores do projeto.

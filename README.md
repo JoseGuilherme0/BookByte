@@ -78,34 +78,22 @@ cd client/rede-social
 npm run dev
 
 # 🧚‍♂️ Estrutura do Projeto
-
+```
 bookbyte/
-
   ├── api/
-
   │   ├── controllers/
-
   │   ├── routes/
-
   │   ├── index.js
-
   │   └── connect.js
-
   │   └── .env
-
   │
-
   ├── client/
-
   │   ├── rede-social
-
   │   │   ├── public/
-
   │   │   └── scr/
-
   │   │   │   ├── app/
-
   │   │   │   ├── components/
+```
 
 # 🤩 Possibilidades Futuras
 

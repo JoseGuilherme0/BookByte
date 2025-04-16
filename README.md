@@ -74,7 +74,7 @@ cd api
 npm start
 
 - Em outra aba do terminal, rodar o frontend
-cd client/rede-social
+cd client/bookbyte
 npm run dev
 
 # 🧚‍♂️ Estrutura do Projeto
@@ -88,7 +88,7 @@ bookbyte/
   │   └── .env
   │
   ├── client/
-  │   ├── rede-social
+  │   ├── bookbyte
   │   │   ├── public/
   │   │   └── scr/
   │   │   │   ├── app/

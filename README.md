@@ -1,15 +1,10 @@
 # 📚 BookByte
 
-BookByte é uma rede social para leitores que desejam compartilhar suas opiniões sobre livros, recomendar (ou não) obras que já leram, e interagir com outros leitores apaixonados por literatura.
+BookByte é uma rede social para leitores que desejam compartilhar suas opiniões sobre livros, recomendar (ou não) obras que já leram, e interagir com outros leitores apaixonados por literatura. A plataforma permite a publicação de resenhas, reações, comentários, sistema de seguidores e muito mais.
 
+# ⚙️ Tecnologias Utilizadas
 
-A plataforma permite a publicação de resenhas, reações, comentários, sistema de seguidores e muito mais.
-
-
-# ⚙️ Tecnologias Utilizadas  
-
-
-🔹 Frontend
+Frontend
 
 - Next.js
 
@@ -17,10 +12,9 @@ A plataforma permite a publicação de resenhas, reações, comentários, sistem
 
 - Tailwind CSS
 
-- Axios (para requisições HTTP)  
+- Axios (para requisições HTTP)
 
-
-🔹Backend
+Backend
 
 - Node.js
 
@@ -30,7 +24,7 @@ A plataforma permite a publicação de resenhas, reações, comentários, sistem
 
 - JWT para autenticação
 
-- nodemon
+- Nodemon
 
 # 🚀 Funcionalidades Iniciais (MVP)
 
@@ -58,49 +52,47 @@ A plataforma permite a publicação de resenhas, reações, comentários, sistem
 
 # Git
 
-
 🔹 Clonando o repositório
 
-- git clone https://github.com/JoseGuilherme0/BookByte.git  
-- cd BookByte
+git clone https://github.com/JoseGuilherme0/BookByte.git
+cd BookByte
 
-# Instalando dependências
+🔹 Instalando dependências
 
-🔹 Frontend
-- cd client  
-- npm install
+- Frontend
+cd frontend
+npm install
 
-🔹 Backend
-- cd api  
-- npm install
+- Backend
+cd backend
+npm install
 
-# Rodando o projeto
+🔹 Rodando o projeto
 
-🔹Rodar backend
-- cd api
-- npm start
+- Rodar backend
+cd api
+npm start
 
-🔹 Em outra aba do terminal, rodar o frontend
-- cd client/rede-social
-- npm run dev  
+- Em outra aba do terminal, rodar o frontend
+cd client/bookbyte
+npm run dev
 
 # 🧚‍♂️ Estrutura do Projeto
-
 ```
 bookbyte/
-│
-├── api/
-│   ├── controllers/
-│   ├── routes/
-│   ├── index.js
-│   └── connect.js
-│
-├── client/
-│   ├── rede-social
-│   │   ├── public/
-│   │   └── scr/
-│   │   │   ├── app/
-│   │   │   ├── components/
+  ├── api/
+  │   ├── controllers/
+  │   ├── routes/
+  │   ├── index.js
+  │   └── connect.js
+  │   └── .env
+  │
+  ├── client/
+  │   ├── bookbyte
+  │   │   ├── public/
+  │   │   └── scr/
+  │   │   │   ├── app/
+  │   │   │   ├── components/
 ```
 
 # 🤩 Possibilidades Futuras
@@ -113,6 +105,6 @@ bookbyte/
 
 - Rankings de usuários mais ativos
 
-- Grupos por gênero literário    
+- Grupos por gênero literário
 
 # 📄 Todos os direitos reservados para os desenvolvedores do projeto.

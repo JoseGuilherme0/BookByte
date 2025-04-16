@@ -12,11 +12,11 @@ function Register(){
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [confirPassword, setConfirmPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
 
     const handleRegister = (e:any)=> {
         e.preventDefault()
-        axios.post("http://localhost:3001/api/auth/register", {username, email, password, confirPassword} ).then((res)=> 
+        axios.post("http://localhost:8001/api/auth/register", {username, email, password, confirmPassword} ).then((res)=> 
             {console.log(res.data)}).catch((err)=> {console.log(err)})
     }
 

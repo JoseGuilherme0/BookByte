@@ -12,7 +12,7 @@ function Login() {
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
-    axios.post("http://localhost:3001/api/auth/login", { email, password }).then((res) => {
+    axios.post("http://localhost:8001/api/auth/login", { email, password }).then((res) => {
         console.log(res.data);
       }).catch((err) => {
         console.log(err);

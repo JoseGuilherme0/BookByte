@@ -3,16 +3,13 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 export const register = (req, res) => {
-  const { username, email, confirmEmail, password, confirmPassword } = req.body;
+  const { username, email, password, confirmPassword } = req.body;
 
   if (!username) {
     return res.status(422).json({ msg: "O nome é obrigatório!" });
   }
   if (!email) {
     return res.status(422).json({ msg: "O email é obrigatório!" });
-  }
-  if (email!= confirmEmail) {
-    return res.status(422).json({ msg: "Os emails não são iguais!" });
   }
   if (!password) {
     return res.status(422).json({ msg: "A senha é obrigatória!" });

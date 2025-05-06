@@ -12,10 +12,11 @@ interface IPost {
   img: string;
   username: string;
   userImg: string;
+  created_at: string
 }
 
 function Post(props: { post: IPost }) {
-  const { post_desc, img, username, userImg } = props.post;
+  const { post_desc, img, username, userImg, created_at } = props.post;
 
   const [user, setUser] = useState<IUser | undefined>(undefined);
 
@@ -25,6 +26,9 @@ function Post(props: { post: IPost }) {
       setUser(JSON.parse(value));
     }
   }, []);
+
+  let date = new Date(created_at)
+  let formatedDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear
 
   return (
     <div className="w-1/3 bg-white rounded-lg p-4 shadow-md">
@@ -40,7 +44,7 @@ function Post(props: { post: IPost }) {
         />
         <div className="flex flex-col">
           <span className="font-semibold">{username}</span>
-          <span className="text-xs">06/05/2025</span>
+          <span className="text-xs">{formatedDate}</span>
         </div>
       </header>
       {post_desc && (

@@ -1,9 +1,30 @@
+"use client";
+
+import Feed from "@/components/Feed";
+import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Home() {
+
+  const router = useRouter()
+
+  useEffect(()=>{
+    let value = localStorage.getItem("bookbyte:token")
+    if (!value){
+      router.push('/login')
+    }
+  },[])
+
   return (
-    <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start"> 
-      
+    <main className="flex min-h-screen flex-col items-center bg-zinc-100"> 
+      <Header/>
+      <div className="w-full flex justify-start pt-10">
+        <Sidebar/>
+        <Feed/>
+      </div>
     </main>
   );
 }

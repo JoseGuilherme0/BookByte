@@ -54,7 +54,7 @@ export const register = (req, res) => {
 };
 
 export const login = (req, res) => {
-  const {email, password} = req.body;
+  const { email, password } = req.body;
 
   db.query(
     "SELECT * FROM user WHERE email = ?",
@@ -77,25 +77,36 @@ export const login = (req, res) => {
           return res.status(422).json({ msg: "Senha incorreta!" });
         }
 
-        try{
-            const refreshToken = jwt.sign({
-                exp: Math.floor(Date.now()/1000) + 24 * 60 * 60,
-                id: user.password
+        try {
+          const refreshToken = jwt.sign(
+            {
+              exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
+              id: user.password,
             },
             process.env.REFRESH,
-            {algorithm: "HS256"}
-        )
-        const token = jwt.sign({
-            exp: Math.floor(Date.now()/1000) + 3600,
-            id: user.password
-        },
-        process.env.TOKEN,
-        {algorithm: "HS256"}
-        )
-        res.status(200).json({msg: "Usuário logado com sucesso!", token, refreshToken})
-        }catch(err){
-            console.log(err)
-            return res.status(500).json({msg: "Aconteceu um problema no servidor, tente novamente mais tarde!"})
+            { algorithm: "HS256" }
+          );
+          const token = jwt.sign(
+            {
+              exp: Math.floor(Date.now() / 1000) + 3600,
+              id: user.password,
+            },
+            process.env.TOKEN,
+            { algorithm: "HS256" }
+          );
+          res
+            .status(200)
+            .json({
+              msg: "Usuário logado com sucesso!",
+              data: { user, token: { token, refreshToken } },
+            });
+        } catch (err) {
+          console.log(err);
+          return res
+            .status(500)
+            .json({
+              msg: "Aconteceu um problema no servidor, tente novamente mais tarde!",
+            });
         }
       }
     }

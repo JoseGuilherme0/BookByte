@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { UserContext } from "@/context/UserContext";
+import { useContext, useEffect, useState } from "react";
 import { FaPaperPlane, FaRegComment, FaThumbsUp } from "react-icons/fa";
 
 interface IUser {
@@ -12,19 +13,16 @@ interface IPost {
   img: string;
   username: string;
   userImg: string;
+  created_at: string;
 }
 
 function Post(props: { post: IPost }) {
-  const { post_desc, img, username, userImg } = props.post;
+  const { post_desc, img, username, userImg, created_at } = props.post;
 
-  const [user, setUser] = useState<IUser | undefined>(undefined);
+  const { user } = useContext(UserContext);
 
-  useEffect(() => {
-    let value = localStorage.getItem("bookbyte:user");
-    if (value) {
-      setUser(JSON.parse(value));
-    }
-  }, []);
+  let date = new Date(created_at);
+  let formatedDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear()
 
   return (
     <div className="w-1/3 bg-white rounded-lg p-4 shadow-md">
@@ -40,7 +38,7 @@ function Post(props: { post: IPost }) {
         />
         <div className="flex flex-col">
           <span className="font-semibold">{username}</span>
-          <span className="text-xs">06/05/2025</span>
+          <span className="text-xs">{formatedDate}</span>
         </div>
       </header>
       {post_desc && (
@@ -48,7 +46,7 @@ function Post(props: { post: IPost }) {
           <span>{post_desc}</span>
         </div>
       )}
-      {img && <img className="rounded-lg" src={img} alt="imagem do post" />}
+      {img && <img className="rounded-lg" src={`./upload/${img}`} alt="imagem do post" />}
       <div className="flex justify-between py-4 border-b">
         <div className="flex gap-1 items-center">
           <span className="bg-blue-600 w-6 h-6 text-white flex items-center justify-center rounded-full text-xs">

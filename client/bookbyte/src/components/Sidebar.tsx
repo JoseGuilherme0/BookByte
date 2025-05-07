@@ -1,5 +1,6 @@
+import { UserContext } from "@/context/UserContext";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   FaAlignLeft,
   FaBookmark,
@@ -11,21 +12,9 @@ import {
 } from "react-icons/fa";
 import { TbClockHour4 } from "react-icons/tb";
 
-interface IUser{
-    userImg: string,
-    username: string
-}
-
 function Sidebar() {
 
-const [user,setUser] =useState<IUser | undefined>(undefined);
-
-useEffect(() => {
-    let value = localStorage.getItem("bookbyte:user");
-    if (value) {
-      setUser(JSON.parse(value));
-    }
-}, []);
+const {user} =useContext(UserContext)
 
   return (
     <aside className="pl-4">

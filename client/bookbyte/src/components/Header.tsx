@@ -1,28 +1,31 @@
 "use client";
 
+import { useMutation } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { FaBell, FaSearch } from "react-icons/fa";
 import { TbMessageCircleFilled } from "react-icons/tb";
+import { makeRequest } from "../../axios";
+import { UserContext } from "@/context/UserContext";
 
 function Header() {
-  const [user, setUser] = useState({ username: "", userImg: "" });
+  const {user, setUser} = useContext(UserContext);
   const [showMenu, setShowMenu] = useState(false)
   const router = useRouter();
 
-  useEffect(() => {
-    let value = localStorage.getItem("bookbyte:user");
-    if (value) {
-      setUser(JSON.parse(value));
-    }
-  }, []);
-
-  const logout = (e:any) =>{
-    e.preventDefault();
-    localStorage.removeItem("bookbyte:token");
-    router.push('/login');
-  }
+const mutation = useMutation({
+  mutationFn: async ()=>{
+    return await makeRequest.post("auth/logout").then((res)=>{
+      res.data;
+    })
+  },
+  onSuccess: () =>{
+    setUser(undefined)
+    localStorage.removeItem("bookbyte:user");
+    router.push("/login")
+  },
+})
 
   return (
     <header className="w-full bg-white flex justify-between py-2 px-4 items-center shadow-md ">
@@ -50,21 +53,21 @@ function Header() {
           <button className="flex gap-2 items-center" onClick={() =>setShowMenu(!showMenu)}>
             <img
               src={
-                user.userImg?.length > 0
-                  ? user.userImg
+                user?
+                  user.userImg
                   : "https://img.freepik.com/free-icon/user_318-159711.jpg"
               }
               alt="Imagem do perfil"
               className="w-8 h-8 rounded-full"
             />
-            <span className="font-bold">{user.username}</span>
+            <span className="font-bold">{user?.username}</span>
           </button>
-          {showMenu &&
+          {showMenu && (
           <div className="absolute flex flex-col bg-white p-4 shadow-md rounded-md gap-2 border-t whitespace-nowrap right-[-8px]">
             <Link href='' className="border-b">Editar perfil</Link>
-            <Link href='' onClick={(e)=> logout(e)}>Sair</Link>
+            <button onClick={() =>mutation.mutate()}>Sair</button>
           </div>
-}
+)}
         </div>
       </div>
     </header>

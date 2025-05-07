@@ -94,11 +94,18 @@ export const login = (req, res) => {
             process.env.TOKEN,
             { algorithm: "HS256" }
           );
+          delete user.password;
           res
+          .cookie("accessToken", token,{
+            httpOnly:true
+          })
+          .cookie("refreshToken", refreshToken,{
+            httpOnly:true
+          })
             .status(200)
             .json({
               msg: "Usuário logado com sucesso!",
-              data: { user, token: { token, refreshToken } },
+              user,
             });
         } catch (err) {
           console.log(err);
@@ -112,3 +119,52 @@ export const login = (req, res) => {
     }
   );
 };
+
+export const logout = (req,res)=>{
+  return res.clearCookie("accessToken", { secure:true, semeSite: "none"}).clearCookie("refreshToken", {secure: true, sameSite:"none"}).status(200).json({msg: "Logout efetuado com sucesso!"})
+}
+
+export const refresh = (req,res)=>{
+  const authHeader = req.headers.cookie?.split("; ")[1]
+  const refresh = authHeader&& authHeader.split('=')[1]
+
+  const tokenStruct = refresh.split('.')[1]
+  const payload = atob(tokenStruct)
+
+  try {
+    const refreshToken = jwt.sign(
+      {
+        exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
+        id: JSON.parse(payload).id,
+      },
+      process.env.REFRESH,
+      { algorithm: "HS256" }
+    );
+    const token = jwt.sign(
+      {
+        exp: Math.floor(Date.now() / 1000) + 3600,
+        id: JSON.parse(payload).id,
+      },
+      process.env.TOKEN,
+      { algorithm: "HS256" }
+    );
+    res
+    .cookie("accessToken", token,{
+      httpOnly:true
+    })
+    .cookie("refreshToken", refreshToken,{
+      httpOnly:true
+    })
+      .status(200)
+      .json({
+        msg: "Token atualizado com sucesso!",
+      });
+  } catch (err) {
+    console.log(err);
+    return res
+      .status(500)
+      .json({
+        msg: "Aconteceu um problema no servidor, tente novamente mais tarde!",
+      });
+  }
+}

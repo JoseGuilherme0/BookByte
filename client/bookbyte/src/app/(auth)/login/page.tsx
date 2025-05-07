@@ -2,14 +2,16 @@
 
 import AuthInput from "@/components/AuthInput";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { makeRequest } from "../../../../axios";
 import { useRouter } from "next/navigation";
+import { UserContext } from "@/context/UserContext";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setErro] = useState("");
+  const {setUser} = useContext(UserContext)
 
   const router = useRouter()
 
@@ -20,12 +22,9 @@ function Login() {
       .then((res) => {
         localStorage.setItem(
           "bookbyte:user",
-          JSON.stringify(res.data.data.user)
+          JSON.stringify(res.data.user)
         );
-        localStorage.setItem(
-          "bookbyte:token",
-          JSON.stringify(res.data.data.token)
-        );
+        setUser(res.data.user);
         setErro("");
         router.push('/')
       })

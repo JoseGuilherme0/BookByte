@@ -32,7 +32,7 @@ function Feed() {
       {isLoading ? (
         <span>Carregando...</span>
       ) : (
-        <div className="w-full flex flex-col-reverse gap-5 items-center">
+        <div className="w-full flex flex-col gap-5 items-center">
           {data?.map((post, id) => {
             return <Post post={post} key={id} />;
           })}

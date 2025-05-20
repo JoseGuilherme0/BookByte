@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "BookByte",
+    description: "Sua rede social de livros!",
+};
+
 function AuthPage({ children }: { children: React.ReactNode }) {
     return (
         <main className="bg-[url('https://png.pngtree.com/background/20230527/original/pngtree-an-old-bookcase-in-a-library-picture-image_2760144.jpg')] bg-no-repeat bg-cover flex min-h-screen flex-col items-center justify-center"> 

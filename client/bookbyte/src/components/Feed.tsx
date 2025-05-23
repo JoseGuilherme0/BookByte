@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
+'use client'
+
 import Post from "./Post";
-import Share from "./Share";
-import { makeRequest } from "../../axios";
-import { useQuery } from "@tanstack/react-query";
 
 interface IPost {
   id: number;
@@ -11,33 +9,17 @@ interface IPost {
   username: string;
   userImg: string;
   created_at: string;
+  userId: number;
 }
 
-function Feed() {
-  const { data, isLoading, error } = useQuery<IPost[] | undefined>({
-    queryKey: ["post"],
-    queryFn: () =>
-      makeRequest.get("post/").then((res) => {
-        return res.data.data;
-      }),
-  });
-
-  if (error) {
-    console.log(error);
-  }
-
+function Feed(props:{post:IPost[] | undefined}) {
   return (
     <div className="flex flex-col items-center gap-5 w-full">
-      <Share />
-      {isLoading ? (
-        <span>Carregando...</span>
-      ) : (
         <div className="w-full flex flex-col gap-5 items-center">
-          {data?.map((post, id) => {
+          {props.post?.map((post, id) => {
             return <Post post={post} key={id} />;
           })}
         </div>
-      )}
     </div>
   );
 }

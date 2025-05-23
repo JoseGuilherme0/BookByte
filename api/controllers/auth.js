@@ -19,7 +19,7 @@ export const register = (req, res) => {
   }
 
   db.query(
-    "SELECT email FROM user WHERE email = ?",
+    "SELECT email FROM users WHERE email = ?",
     [email],
     async (error, data) => {
       if (error) {
@@ -57,7 +57,7 @@ export const login = (req, res) => {
   const { email, password } = req.body;
 
   db.query(
-    "SELECT * FROM user WHERE email = ?",
+    "SELECT * FROM users WHERE email = ?",
     [email],
     async (error, data) => {
       if (error) {

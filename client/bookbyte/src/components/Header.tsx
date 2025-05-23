@@ -29,7 +29,7 @@ const mutation = useMutation({
 
   return (
     <header className="w-full bg-white flex justify-between py-2 px-4 items-center shadow-md ">
-      <Link href="/" className="font-bold text-sky-900 text-lg ">
+      <Link href="/main" className="font-bold text-sky-900 text-lg ">
         BOOKBYTE
       </Link>
       <div className="flex bg-zinc-100 items-center text-gray-600 px-3 py-1 rounded-full">

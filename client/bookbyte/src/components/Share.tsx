@@ -1,3 +1,5 @@
+'use client'
+
 import { UserContext } from "@/context/UserContext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useContext, useEffect, useState } from "react";
@@ -54,7 +56,7 @@ function Share() {
     }
 
     return ( 
-        <div className=" bg-white rounded-lg p-4 shadow-md flex flex-col gap-3 w-1/3">
+        <div className=" bg-white rounded-lg p-4 shadow-md flex flex-col gap-3 w-full">
             {img && <img className="rounded-lg" src={postImg} alt="imagem do post" /> }
             <div className="flex gap-4 pt-6">
                     <img

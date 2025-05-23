@@ -1,3 +1,5 @@
+'use client'
+
 import { UserContext } from "@/context/UserContext";
 import { useContext, useEffect, useState } from "react";
 import { FaPaperPlane, FaRegComment, FaThumbsUp } from "react-icons/fa";
@@ -6,6 +8,7 @@ import "moment/locale/pt-br"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import Comment from "./Comment";
+import Link from "next/link";
 
 interface IUser {
   userImg: string;
@@ -19,6 +22,7 @@ interface IPost {
   username: string;
   userImg: string;
   created_at: string;
+  userId: number;
 }
 
 interface IComments {
@@ -39,7 +43,7 @@ interface ILikes {
 }
 
 function Post(props: { post: IPost }) {
-  const { id, post_desc, img, username, userImg, created_at } = props.post;
+  const { id, post_desc, img, username, userImg, created_at, userId } = props.post;
   const { user } = useContext(UserContext);
   const [comment_desc, setComment_desc] = useState('')
   const [showComments, setShowComments] = useState(false)
@@ -121,8 +125,9 @@ function Post(props: { post: IPost }) {
   }
 
   return (
-    <div className="w-1/3 bg-white rounded-lg p-4 shadow-md">
+    <div className="w-full bg-white rounded-lg p-4 shadow-md">
       <header className="flex gap-2 pb-4 border-b items-center">
+        <Link href={"/profile?id="+userId}>
         <img
           className="w-8 h-8 rounded-full"
           src={
@@ -136,6 +141,7 @@ function Post(props: { post: IPost }) {
           <span className="font-semibold">{username}</span>
           <span className="text-xs">{moment(created_at).fromNow()}</span>
         </div>
+        </Link>
       </header>
       {post_desc && (
         <div className="py-4 w-full">

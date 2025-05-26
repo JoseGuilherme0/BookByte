@@ -8,6 +8,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import { makeRequest } from "../../../axios";
+import FriendshipTable from "@/components/FrinedshipTable";
 
 export default function MainHome({children}:{children:ReactNode} ) {
 
@@ -35,11 +36,12 @@ export default function MainHome({children}:{children:ReactNode} ) {
   return (
     <main className="flex min-h-screen flex-col items-center bg-zinc-100"> 
       <Header/>
-      <div className="w-full flex justify-start pt-10">
+      <div className="w-full flex justify-start py-20">
         <Sidebar/>
         <div className="w-full flex justify-center">
            {children}
         </div>
+        <FriendshipTable/>
       </div>
     </main>
   );

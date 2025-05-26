@@ -6,34 +6,29 @@ interface ContextProps {
   children: React.ReactNode;
 }
 
-interface UserType {
+interface User{
+  user:{
   id: number;
   email: string;
   username: string;
   userImg: string;
   bgImg: string;
+} | undefined
+setUser : (newState : any) => void
 }
 
-interface UserContextType {
-  user: UserType | undefined;
-  setUser: (newState: UserType | undefined) => void;
-}
-
-const initialValue: UserContextType = {
+const initialValue = {
   user: undefined,
   setUser: () => {},
 };
 
-export const UserContext = createContext<UserContextType>(initialValue);
+export const UserContext = createContext<User>(initialValue);
 
 export const UserContextProvider = ({ children }: ContextProps) => {
-  const [user, setUser] = useState<UserType | undefined>(undefined);
-
+  const [user, setUser] = useState(initialValue.user);
   useEffect(() => {
-    const userJSON = localStorage.getItem("bookbyte:user");
-    if (userJSON) {
-      setUser(JSON.parse(userJSON));
-    }
+    let UserJSON = localStorage.getItem("bookbyte:user");
+    setUser(UserJSON&& JSON.parse(UserJSON));
   }, []);
 
   return (

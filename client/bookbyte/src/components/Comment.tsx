@@ -2,16 +2,7 @@
 
 import moment from "moment"
 import "moment/locale/pt-br"
-
-interface IComments {
-  id: number;
-  comment_desc: string;
-  userImg: string;
-  comment_user_id: number;
-  username: string;
-  post_id: number;
-  created_at: string;
-}
+import { IComments } from "@/interfaces"
 
 function Comment(props: {comment: IComments}) {
     const {comment_desc,userImg,username,created_at} = props.comment

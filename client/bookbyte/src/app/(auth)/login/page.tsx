@@ -26,7 +26,8 @@ function Login() {
         );
         setUser(res.data.user);
         setErro("");
-        router.push('/')
+        router.push('/main')
+        console.log(res.data)
       })
       .catch((err) => {
         console.log(err);

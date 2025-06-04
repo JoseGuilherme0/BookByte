@@ -1,3 +1,5 @@
+'use client'
+
 import { UserContext } from "@/context/UserContext";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
@@ -17,9 +19,9 @@ function Sidebar() {
 const {user} =useContext(UserContext)
 
   return (
-    <aside className="pl-4">
+    <aside className="fixed w-1/6 pl-4">
       <nav className="flex flex-col gap-6 text-gray-600 font-semibold">
-        <Link href="" className="flex gap-2 pb-6 items-center">
+        <Link href={"/profile?id="+user?.id} className="flex gap-2 pb-6 items-center">
         <img
               src={
                 user?.userImg

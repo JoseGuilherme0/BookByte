@@ -1,4 +1,4 @@
-
+'use client'
 interface AuthInputProps {
     newState: (state: string) => void,
     label: string;

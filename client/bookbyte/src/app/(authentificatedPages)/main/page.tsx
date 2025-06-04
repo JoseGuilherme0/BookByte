@@ -4,16 +4,7 @@ import Feed from "@/components/Feed";
 import Share from "@/components/Share";
 import { useQuery } from "@tanstack/react-query";
 import { makeRequest } from "../../../../axios";
-
-interface IPost {
-  id: number;
-  post_desc: string;
-  img: string;
-  username: string;
-  userImg: string;
-  created_at: string;
-  userId: number;
-}
+import { IPost } from "@/interfaces";
 
 
 function Main() {

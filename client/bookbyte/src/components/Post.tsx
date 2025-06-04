@@ -9,38 +9,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import Comment from "./Comment";
 import Link from "next/link";
-
-interface IUser {
-  userImg: string;
-  username: string;
-}
-
-interface IPost {
-  id: number;
-  post_desc: string;
-  img: string;
-  username: string;
-  userImg: string;
-  created_at: string;
-  userId: number;
-}
-
-interface IComments {
-  id: number;
-  comment_desc: string;
-  userImg: string;
-  comment_user_id: number;
-  username: string;
-  post_id: number;
-  created_at: string;
-}
-
-interface ILikes {
-  id: number;
-  likes_user_id: number;
-  username: string;
-  likes_post_id: number;
-}
+import { IPost, IComments, ILikes } from "@/interfaces";
 
 function Post(props: { post: IPost }) {
   const { id, post_desc, img, username, userImg, created_at, userId } = props.post;

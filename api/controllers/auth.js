@@ -33,7 +33,7 @@ export const register = (req, res) => {
       } else {
         const passwordHash = await bcrypt.hash(password, 8);
         db.query(
-          "INSERT INTO user SET ?",
+          "INSERT INTO users SET ?",
           { username, email, password: passwordHash },
           (error) => {
             if (error) {
